@@ -1,0 +1,35 @@
+#table_layer {
+    width: 70%;
+    overflow-y: auto;
+    height: 380px;
+}
+table {
+    width: 100%;
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 50%;
+    padding: 5px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+td {
+    color: #7c1bfb;
+}
+
+button {
+    width: 120px;
+    height: 35px;
+    background: linear-gradient(#f9e6d1, #485d6a, #485d6a);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+tr:nth-child(even) {background: #FFF}
+tr:nth-child(odd) {background: #d3d3d3}

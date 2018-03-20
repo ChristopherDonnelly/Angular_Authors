@@ -1,0 +1,9 @@
+<a href="#" [routerLink]="['/home']">Home</a>
+
+<div id="add_new_layer">
+  <label for="name">Name:
+    <input type="text" name="name" [(ngModel)]="authorService.name" ></label>
+  <button (click)="cancel()">Cancel</button>
+  <button (click)="add()">Submit</button>
+  <p [ngClass]="{'red': error }">{{ name.errors }}</p>
+</div>

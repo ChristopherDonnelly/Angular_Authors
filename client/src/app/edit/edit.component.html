@@ -1,0 +1,9 @@
+<a href="#" [routerLink]="['/home']">Home</a>
+
+<div id="edit_layer">
+  <label for="name">Name:
+    <input type="text" name="name" [(ngModel)]="authorService.name"></label>
+  <button (click)="cancel()">Cancel</button>
+  <button (click)="update(authorService.id)">Submit</button>
+  <p [ngClass]="{'red': error }">{{ name.errors }}</p>
+</div>

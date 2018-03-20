@@ -1,0 +1,21 @@
+<a href="#" [routerLink]="['/new']">Add an author</a>
+
+<div id="table_layer">
+  <table>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Actions available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authorService.all">
+        <td>{{author.name}}</td>
+        <td>
+          <button (click)="edit(author._id)">Edit</button>
+          <button (click)="delete(author._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

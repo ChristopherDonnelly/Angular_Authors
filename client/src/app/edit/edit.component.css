@@ -1,0 +1,29 @@
+.red {
+    color: red;
+}
+
+#edit_layer {
+    width: 50%;
+    margin-top: 10px;
+    border: 1px solid black;
+    height: 280px;
+    padding: 40px;
+}
+
+input[type="text"] {
+    display: block;
+    margin: 10px 0px;
+    width: 70%;
+    height: 25px;
+}
+
+button {
+    width: 144px;
+    background-color: #66bbff;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
