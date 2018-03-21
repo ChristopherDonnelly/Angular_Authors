@@ -1,0 +1,9 @@
+<a href="#" [routerLink]="['/home']">Home</a>
+
+<div id="write_layer">
+  <label for="quote">Quote:
+    <input type="text" name="quote" [(ngModel)]="authorService.quote" ></label>
+  <button (click)="cancel()">Cancel</button>
+  <button (click)="add()">Submit</button>
+  <p [ngClass]="{'red': error }">{{ quote.errors }}</p>
+</div>

@@ -8,6 +8,7 @@
     border: 1px solid black;
     height: 280px;
     padding: 40px;
+    margin: 0px auto;
 }
 
 input[type="text"] {

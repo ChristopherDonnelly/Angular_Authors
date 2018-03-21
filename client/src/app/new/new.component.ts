@@ -26,7 +26,7 @@ export class NewComponent implements OnInit {
     this.name = {errors: ''}
     this.error = false;
 
-    this.authorService.location = "Add a new author:";
+    this.authorService.location = "Add a new quotable author:";
     this.authorService.name = '';
   }
 

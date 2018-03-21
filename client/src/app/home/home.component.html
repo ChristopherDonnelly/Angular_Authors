@@ -1,4 +1,4 @@
-<a href="#" [routerLink]="['/new']">Add an author</a>
+<a href="#" [routerLink]="['/new']">Add a quotable author</a>
 
 <div id="table_layer">
   <table>
@@ -12,8 +12,8 @@
       <tr *ngFor="let author of authorService.all">
         <td>{{author.name}}</td>
         <td>
+          <button (click)="view(author._id)">View quotes</button>
           <button (click)="edit(author._id)">Edit</button>
-          <button (click)="delete(author._id)">Delete</button>
         </td>
       </tr>
     </tbody>

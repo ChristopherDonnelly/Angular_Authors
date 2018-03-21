@@ -36,7 +36,6 @@ module.exports = {
                 res.json({message: "Success", author: author});
             }
         });
-    
     },
     create: (req, res) => {
         console.log('Attempt Create new Author: ' + req.body.name)
@@ -50,6 +49,69 @@ module.exports = {
             } else {
                 console.log('Successfully created a new author: ' + req.body);
                 res.json({message: "Success", author: author});
+            }
+        });
+    },
+    newQuote: (req, res) => {
+        var query = {'_id': req.params.id};
+
+        console.log('Attempt add New Quote to Author: ' + req.params.id);
+        console.log('Attempting to add Quote: ' + req.body.content);
+
+        Author.findByIdAndUpdate(query, {$push: { quotes: { content: req.body.content }}}, {upsert: true, new: true, runValidators: true}, function(err, author){
+            if(err) {
+                console.log('Something went wrong, could not update Author: '+req.params.id);
+                console.log("Returned error", err);
+                res.json({message: "Error", error: err});
+            } else {
+                console.log(author)
+                res.json({message: "Success", author: author});
+            }
+        });
+    },
+    deleteQuote: (req, res) => {
+        var query = { '_id': req.params.a_id } ;
+
+        console.log('Attempt to add a vote for Author: ' + req.params.a_id);
+        console.log('Attempting to add a vote for Quote: ' + req.params.q_id);
+
+        Author.findById(query, (err, author) => {
+            if(err){
+                res.json({message: "Error", error: err});
+            }else{
+                let quote;
+                for(let i=0; i<author.quotes.length; i++){
+                    if(author.quotes[i]._id == req.params.q_id){
+                        quote=author.quotes[i];
+                        author.quotes.splice(i, 1);
+                        author.save();
+                        break;
+                    }
+                }
+                res.json({message: "Success", quote: quote});
+            }
+        });
+    },
+    voteQuote: (req, res) => {
+        var query = { '_id': req.params.a_id } ;
+
+        console.log('Attempt to add a vote for Author: ' + req.params.a_id);
+        console.log('Attempting to add a vote for Quote: ' + req.params.q_id);
+
+        Author.findById(query, (err, author) => {
+            if(err){
+                res.json({message: "Error", error: err});
+            }else{
+                let quote;
+                for(let i=0; i<author.quotes.length; i++){
+                    if(author.quotes[i]._id == req.params.q_id){
+                        quote=author.quotes[i];
+                        quote.votes += parseInt(req.body.vote);
+                        author.save();
+                        break;
+                    }
+                }
+                res.json({message: "Success", quote: quote});
             }
         });
     },

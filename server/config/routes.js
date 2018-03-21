@@ -16,6 +16,18 @@ module.exports = (app) => {
         author_ctrl.update(req, res);
     });
 
+    app.put('/authors/:id/quote', (req, res) => {
+        author_ctrl.newQuote(req, res);
+    });
+
+    app.delete('/authors/:a_id/quote/:q_id', (req, res) => {
+        author_ctrl.deleteQuote(req, res);
+    });
+
+    app.put('/authors/:a_id/quote/:q_id/vote', (req, res) => {
+        author_ctrl.voteQuote(req, res);
+    });
+
     app.post('/authors', (req, res) => {
         author_ctrl.create(req, res);
     });

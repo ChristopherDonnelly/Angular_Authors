@@ -1,0 +1,25 @@
+<a href="#" [routerLink]="['/home']">Home</a>
+<a href="#" [routerLink]="['/write', authorService.id]">Add a quotable</a>
+
+<div id="table_layer">
+  <table>
+    <thead>
+      <tr>
+        <th>Quote</th>
+        <th>Votes</th>
+        <th>Actions available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quote of authorService.quotes">
+        <td>{{quote.content}}</td>
+        <td>{{quote.votes}}</td>
+        <td>
+          <button (click)="voteUp(quote._id)">Vote Up</button>
+          <button (click)="voteDown(quote._id)">Vote Down</button>
+          <button (click)="delete(quote._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

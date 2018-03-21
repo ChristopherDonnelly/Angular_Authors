@@ -30,7 +30,13 @@ export class HomeComponent implements OnInit {
     this._router.navigate(['/edit',auth_id]);
   }
 
-  delete(auth_id){
+  view(auth_id){
+    console.log('Navigate to View Quotes with Auth ID: '+auth_id);
+
+    this._router.navigate(['/quotes',auth_id]);
+  }
+
+  /* delete(auth_id){
     console.log('Delete Auth ID: '+auth_id);
 
     let deleteAuthor = this._httpService.deleteAuthor(auth_id);
@@ -38,7 +44,7 @@ export class HomeComponent implements OnInit {
       console.log('Delete Author Name: '+data['author'])
       this.getAllAuthors();
     });
-  }
+  } */
 
   getAllAuthors(){
     let getAllAuthors = this._httpService.getAuthors();

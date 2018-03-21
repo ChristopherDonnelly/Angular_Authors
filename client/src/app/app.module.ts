@@ -12,6 +12,8 @@ import { EditComponent } from './edit/edit.component';
 import { Four0fourComponent } from './four0four/four0four.component';
 import { AuthorService } from './author.service';
 import { FormsModule } from '@angular/forms';
+import { QuotesComponent } from './quotes/quotes.component';
+import { WriteComponent } from './write/write.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NewComponent,
     EditComponent,
-    Four0fourComponent
+    Four0fourComponent,
+    QuotesComponent,
+    WriteComponent
   ],
   imports: [
     BrowserModule,
